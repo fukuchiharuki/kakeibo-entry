@@ -43,7 +43,7 @@
     <div class="my-1 flex gap-x-1">
       <script>
         document.open();
-        for (const i in range(7)) {
+        for (const i of range(7)) {
           const id = `week-day-${i}`;
           const textColor = (Number(i) === 0) ? 'text-red-500' : (Number(i) === 6) ? 'text-blue-500' : '';
           document.write(`\
@@ -62,15 +62,15 @@
       <h2 class="font-bold">使った金額:</h2>
     </header>
     <div class="my-1">
-      <input class="border border-dashed rounded p-1" type="text" name="entry.1644931895" value="0" readonly />
+      <input class="border border-dashed rounded p-1 text-right" type="text" name="entry.1644931895" value="0" readonly />
       <span>円</span>
     </div>
     <script>
       document.open();
-      for (const i in range(3)) {
+      for (const i of range(3)) {
         document.write('<div class="my-1 flex gap-x-1">');
-        for (const j in range(3)) {
-          const number = (2 - Number(i)) * 3 + Number(j) + 1;
+        for (const j of range(3)) {
+          const number = (2 - i) * 3 + j + 1;
           const id = `numeric-key-${number}`;
           document.write(`\
             <div class="flex-1">\
@@ -97,3 +97,4 @@
 </div>
 
 <script src="./input-date.js"></script>
+<script src="./input-amount.js"></script>
