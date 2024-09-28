@@ -40,27 +40,19 @@
       </div>
     </div>
     <div class="my-1 flex gap-x-1">
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm text-red-500" id="week-day-0"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm" id="week-day-1"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm" id="week-day-2"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm" id="week-day-3"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm" id="week-day-4"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm" id="week-day-5"></button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1 text-sm text-blue-500" id="week-day-6"></button>
-      </div>
+      <script>
+        document.open();
+        for (const i in [...Array(7).keys()]) {
+          const id = `week-day-${i}`
+          const textColor = (Number(i) === 0) ? 'text-red-500' : (Number(i) === 6) ? 'text-blue-500' : '';
+          document.write(`\
+            <div class="flex-1">\
+              <button class="w-full border rounded py-1 text-sm ${textColor}" id="${id}"></button>\
+            </div>\
+          `);
+        }
+        document.close();
+      </script>
     </div>
   </div>
 
@@ -72,39 +64,23 @@
       <input class="border border-dashed rounded px-1" type="text" name="entry.1644931895" readonly />
       <span>円</span>
     </div>
-    <div class="my-1 flex gap-x-1">
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-7">7</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-8">8</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-9">9</button>
-      </div>
-    </div>
-    <div class="my-1 flex gap-x-1">
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-4">4</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-5">5</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-6">6</button>
-      </div>
-    </div>
-    <div class="my-1 flex gap-x-1">
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-1">1</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-2">2</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-1" id="numeric-key-3">3</button>
-      </div>
-    </div>
+    <script>
+      document.open();
+      for (const i in [...Array(3).keys()]) {
+        document.write('<div class="my-1 flex gap-x-1">');
+        for (const j in [...Array(3).keys()]) {
+          const number = (2 - Number(i)) * 3 + Number(j) + 1
+          const id = `numeric-key-${number}`
+          document.write(`\
+            <div class="flex-1">\
+              <button class="w-full border rounded py-1" id="${id}">${number}</button>\
+            </div>\
+          `);
+        }
+        document.write('</div>');
+      }
+      document.close();
+    </script>
     <div class="my-1 flex gap-x-1">
       <div class="flex-1">
         <button class="w-full border rounded py-1" id="numeric-key-0">0</button>
