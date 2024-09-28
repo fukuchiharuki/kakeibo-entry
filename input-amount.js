@@ -1,6 +1,10 @@
 (function () {
   const amountInput = document.querySelector('[name="entry.1644931895"]');
 
+  if (amountInput && !amountInput.value) {
+    clear();
+  }
+
   for (const i of range(10)) {
     document
       .querySelector(`#numeric-key-${i}`)
