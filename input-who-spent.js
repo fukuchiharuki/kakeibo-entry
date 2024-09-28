@@ -1,9 +1,9 @@
 (function () {
-  const accountItemInput = document.querySelector('[name="entry.1872975358"]');
+  const whoSpentInput = document.querySelector('[name="entry.1354928899"]');
 
-  document.querySelectorAll(".account-item").forEach((el) =>
+  document.querySelectorAll(".who-spent").forEach((el) =>
     el.addEventListener("click", (e) => {
-      accountItemInput.value = e.currentTarget.textContent.trim();
+      whoSpentInput.value = e.currentTarget.textContent.trim();
     })
   );
 })();
