@@ -4,6 +4,7 @@
 <title>家計簿入力</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="./common-utility.js"></script>
 
 <div>
   <header class="my-4">
@@ -25,7 +26,7 @@
       <h2 class="font-bold">使った日:</h2>
     </header>
     <div class="my-1">
-      <input class="border border-dashed rounded px-1" type="text" name="entry.502180998" readonly />
+      <input class="border border-dashed rounded p-1" type="text" name="entry.502180998" readonly />
       <span id="date-day"></span>
     </div>
     <div class="my-1 flex gap-x-1">
@@ -42,7 +43,7 @@
     <div class="my-1 flex gap-x-1">
       <script>
         document.open();
-        for (const i in [...Array(7).keys()]) {
+        for (const i in range(7)) {
           const id = `week-day-${i}`
           const textColor = (Number(i) === 0) ? 'text-red-500' : (Number(i) === 6) ? 'text-blue-500' : '';
           document.write(`\
@@ -61,14 +62,14 @@
       <h2 class="font-bold">使った金額:</h2>
     </header>
     <div class="my-1">
-      <input class="border border-dashed rounded px-1" type="text" name="entry.1644931895" readonly />
+      <input class="border border-dashed rounded p-1" type="text" name="entry.1644931895" readonly />
       <span>円</span>
     </div>
     <script>
       document.open();
-      for (const i in [...Array(3).keys()]) {
+      for (const i in range(3)) {
         document.write('<div class="my-1 flex gap-x-1">');
-        for (const j in [...Array(3).keys()]) {
+        for (const j in range(3)) {
           const number = (2 - Number(i)) * 3 + Number(j) + 1
           const id = `numeric-key-${number}`
           document.write(`\

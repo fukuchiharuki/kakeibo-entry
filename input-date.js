@@ -32,7 +32,7 @@
     reflectWeek(plusDays(weekCursor, 7));
   });
 
-  for (const i in [...Array(7).keys()]) {
+  for (const i in range(7)) {
     weekDayButtons[i].addEventListener("click", () => {
       reflectDate(minusDays(weekCursor, weekCursor.getDay() - i));
     });
@@ -44,7 +44,7 @@
   }
 
   function refreshWeek() {
-    for (const i in [...Array(7).keys()]) {
+    for (const i in range(7)) {
       const date = minusDays(weekCursor, weekCursor.getDay() - i);
       weekDayButtons[i].innerHTML =
         `(${["日", "月", "火", "水", "木", "金", "土"][date.getDay()]})` +
