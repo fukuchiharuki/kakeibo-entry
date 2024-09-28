@@ -6,6 +6,10 @@
   const whoSpentInput = document.querySelector('[name="entry.1354928899"]');
 
   document.querySelector("#submit").addEventListener("click", () => {
+    if (!action()) {
+      alert(`No action.`);
+      return;
+    }
     if (!isValid()) {
       alert(`Please complete all required fields.\n${incompleteFields()}`);
       return;
@@ -44,17 +48,40 @@
   }
 
   function sendForm() {
-    const body = [
-      dateInput,
+    fetch(action(), {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: body(),
+    });
+  }
+
+  function action() {
+    const searchParams = new URLSearchParams(window.location.search);
+    return searchParams.get("action");
+  }
+
+  function body() {
+    const [year, month, day] = dateInput.value.split("/");
+    const dateInputParams = [
+      ["year", year],
+      ["month", month],
+      ["day", day],
+    ].map(
+      (it) =>
+        `${dateInput.getAttribute("name")}_${it[0]}=${encodeURIComponent(
+          it[1]
+        )}`
+    );
+    const ordinaryParams = [
       amountInput,
       accountItemInput,
       noteInput,
       whoSpentInput,
-    ]
-      .map((el) => `${el.getAttribute("name")}=${encodeURIComponent(el.value)}`)
-      .join("&");
-
-    alert(body);
+    ].map((el) => `${el.getAttribute("name")}=${encodeURIComponent(el.value)}`);
+    return [...dateInputParams, ...ordinaryParams].join("&");
   }
 
   function takeOver() {
