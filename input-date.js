@@ -1,4 +1,7 @@
 (function () {
+  const dateInput = document.querySelector('[name="entry.502180998"]');
+  const dateDayLabel = document.querySelector("#date-day");
+
   let weekCursor = new Date();
   const weekDayButtons = [
     document.querySelector("#week-day-0"),
@@ -10,19 +13,14 @@
     document.querySelector("#week-day-6"),
   ];
 
-  const dateInput = document.querySelector('[name="entry.502180998"]');
-  const dateDayLabel = document.querySelector("#date-day");
-
   if (dateInput && !dateInput.value) {
     reflectDate(new Date());
     refreshWeek();
   }
 
-  document
-    .querySelector("#week-previous")
-    .addEventListener("click", () => {
-      reflectWeek(minusDays(weekCursor, 7));
-    });
+  document.querySelector("#week-previous").addEventListener("click", () => {
+    reflectWeek(minusDays(weekCursor, 7));
+  });
 
   document.querySelector("#wee-this").addEventListener("click", () => {
     reflectWeek(new Date());
