@@ -94,7 +94,65 @@
       </div>
     </div>
   </div>
+
+  <div class="mx-2 my-4">
+    <header class="my-1">
+      <h2 class="font-bold">分類:</h2>
+    </header>
+    <div class="my-1">
+      <input class="border border-dashed rounded p-1" type="text" name="entry.1872975358" readonly />
+    </div>
+    <script>
+      document.open();
+      for (const row of [
+        ["食費 (食料品)", "食費 (外食等)"],
+        ["生活費 (消耗品)", "生活費 (その他)"],
+        ["子育て費用", "家族レク"],
+        ["交際費", "趣味娯楽費"],
+        ["医療費", "特別費"]
+      ]) {
+        document.write('<div class="my-1 flex gap-x-1">');
+        for (const item of row) {
+          document.write(`\
+            <div class="flex-1">\
+              <button class="w-full border rounded py-2 text-sm account-item">${item}</button>\
+            </div>\
+          `);
+        }
+        document.write('</div>')
+      }
+      document.open();
+    </script>
+  </div>
+
+  <div class="mx-2 my-4">
+    <header class="my-1">
+      <h2 class="font-bold">メモ:</h2>
+    </header>
+    <div class="my-1">
+      <input class="w-full border rounded p-1" type="text" name="entry.1263347079" />
+    </div>
+  </div>
+
+  <div class="mx-2 my-4">
+    <header class="my-1">
+      <h2 class="font-bold">使った人:</h2>
+    </header>
+    <div class="my-1">
+      <input class="border border-dashed rounded p-1" type="text" name="entry.1354928899" readonly />
+    </div>
+    <div class="my-1 flex gap-x-1">
+      <div class="flex-1">
+        <button class="w-full border rounded py-1 who-spent">はる</button>
+      </div>
+      <div class="flex-1">
+        <button class="w-full border rounded py-1 who-spent">まい</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="./input-date.js"></script>
 <script src="./input-amount.js"></script>
+<script src="./input-account-item.js"></script>
+<script src="./input-who-spent.js"></script>
