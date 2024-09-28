@@ -8,11 +8,11 @@
   }
 
   function store(queryParams) {
-    localStorage.setItem("savedQueryParams", queryParams);
+    localStorage.setItem("app:kakeibo-entry:savedQueryParams", queryParams);
   }
 
   function restore() {
-    const savedQueryParams = localStorage.getItem("savedQueryParams");
+    const savedQueryParams = localStorage.getItem("app:kakeibo-entry:savedQueryParams");
     if (savedQueryParams) {
       const newUrl =
         window.location.origin + window.location.pathname + savedQueryParams;
