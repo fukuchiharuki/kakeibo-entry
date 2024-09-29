@@ -39,8 +39,8 @@
 
   function restoreFromCookie() {
     const cookies = document.cookie.split(";").map((it) => it.trim());
-    const cookie = cookies.find((c) => c.split("=", 2)[0] === key());
-    return cookie ? cookie.split("=", 2)[1] : null;
+    const cookie = cookies.find((cookie) => cookie.split("=")[0] === key());
+    return cookie ? cookie.split("=").slice(1).join("=") : null;
   }
 
   function reflect(savedQueryParams) {
