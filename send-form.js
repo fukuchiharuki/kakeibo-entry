@@ -7,7 +7,7 @@
 
   document.querySelector("#submit").addEventListener("click", () => {
     if (!action()) {
-      alert(`No action.`);
+      alert(`Setup failed.`);
       return;
     }
     if (!isValid()) {

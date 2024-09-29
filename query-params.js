@@ -29,7 +29,7 @@
       storeToLocalStorage(savedQueryParams);
       reflect(savedQueryParams);
     } else {
-      alert(`No action.`);
+      alert(`Setup failed.`);
     }
   }
 
