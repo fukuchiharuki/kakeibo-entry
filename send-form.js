@@ -30,7 +30,7 @@
     return [
       !!dateInput.value || "使った日",
       !!Number(amountInput.value) || "使った金額",
-      !!accountItemInput.value || "勘定項目",
+      !!accountItemInput.value || "分類",
       !!whoSpentInput.value || "使った人",
     ].filter((it) => it !== true);
   }
@@ -40,8 +40,8 @@
       [
         `【使った日】 ${dateInput.value}`,
         `【使った金額】 ${amountInput.value} 円`,
-        `【勘定項目】 ${accountItemInput.value}`,
-        `【摘要】 ${noteInput.value}`,
+        `【分類】 ${accountItemInput.value}`,
+        `【メモ】 ${noteInput.value}`,
         `【使った人】 ${whoSpentInput.value}`,
       ].join("\n")
     );
