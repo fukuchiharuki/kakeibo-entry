@@ -1,0 +1,10 @@
+button {
+  position: relative;
+  transition: transform .1s;
+}
+
+button:not(#submit):active {
+  transform: scale(.90);
+  background-color: #f5f5f5;
+  border-color: lightgray;
+}
