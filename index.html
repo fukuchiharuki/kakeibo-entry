@@ -4,6 +4,7 @@
 <title>家計簿入力</title>
 <link rel="icon" href="./favicon.ico">
 <link rel="manifest" href="./manifest.json" />
+<link rel="stylesheet" href="button-interaction.css" type="text/css">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="./common-utility.js"></script>
@@ -22,17 +23,6 @@
       <span id="date-day"></span>
     </div>
     <div class="my-1 flex gap-x-1">
-      <div class="flex-1">
-        <button class="w-full border rounded py-2 text-sm" id="week-previous">◀ 前の週</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-2 text-sm" id="wee-this">今日</button>
-      </div>
-      <div class="flex-1">
-        <button class="w-full border rounded py-2 text-sm" id="week-next">次の週 ▶</button>
-      </div>
-    </div>
-    <div class="my-1 flex gap-x-1">
       <script>
         document.open();
         for (const i of range(7)) {
@@ -46,6 +36,17 @@
         }
         document.close();
       </script>
+    </div>
+    <div class="my-1 flex gap-x-1">
+      <div class="flex-1">
+        <button class="w-full border rounded py-2 text-sm" id="week-previous">◁ 前の週</button>
+      </div>
+      <div class="flex-1">
+        <button class="w-full border rounded py-2 text-sm" id="wee-this">今週</button>
+      </div>
+      <div class="flex-1">
+        <button class="w-full border rounded py-2 text-sm" id="week-next">次の週 ▷</button>
+      </div>
     </div>
   </div>
 
