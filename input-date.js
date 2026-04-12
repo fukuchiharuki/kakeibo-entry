@@ -47,10 +47,9 @@
       weekDayButtons[i].innerHTML =
         `(${["日", "月", "火", "水", "木", "金", "土"][date.getDay()]})` +
         "<br />" +
-        toShortDateString(date);
-      if (date.toDateString() === new Date().toDateString()) {
-        weekDayButtons[i].innerHTML = `<i>${weekDayButtons[i].innerHTML}</i>`;
-      }
+        (date.toDateString() === new Date().toDateString()
+          ? "今日"
+          : toShortDateString(date));
     }
   }
 
