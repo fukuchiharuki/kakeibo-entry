@@ -39,7 +39,7 @@
     return confirm(
       [
         `【使った日】 ${dateInput.value}`,
-        `【使った金額】 ${amountInput.value} 円`,
+        `【使った金額】 ${formatAmount(amountInput.value)} 円`,
         `【分類】 ${accountItemInput.value}`,
         `【メモ】 ${noteInput.value}`,
         `【使った人】 ${whoSpentInput.value}`,
@@ -95,5 +95,9 @@
       top: 0,
       behavior: "smooth",
     });
+  }
+
+  function formatAmount(value) {
+    return Number(value).toLocaleString("ja-JP");
   }
 })();
