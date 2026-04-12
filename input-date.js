@@ -15,7 +15,6 @@
 
   if (dateInput && !dateInput.value) {
     reflectDate(new Date());
-    refreshWeek();
   }
 
   document.querySelector("#week-previous").addEventListener("click", () => {
@@ -47,10 +46,10 @@
       weekDayButtons[i].innerHTML =
         `(${["日", "月", "火", "水", "木", "金", "土"][date.getDay()]})` +
         "<br />" +
-        toShortDateString(date);
-      if (date.toDateString() === new Date().toDateString()) {
-        weekDayButtons[i].innerHTML = `<i>${weekDayButtons[i].innerHTML}</i>`;
-      }
+        (date.toDateString() === new Date().toDateString()
+          ? "今日"
+          : toShortDateString(date));
+      weekDayButtons[i].classList.toggle("bg-gray-200", isSelectedDate(date));
     }
   }
 
@@ -59,6 +58,7 @@
     dateDayLabel.innerHTML = `(${
       ["日", "月", "火", "水", "木", "金", "土"][date.getDay()]
     })`;
+    refreshWeek();
   }
 
   function toDateString(date /* :Date */) {
@@ -84,5 +84,9 @@
 
   function minusDays(date /* :Date */, days /* :number */) {
     return plusDays(date, -days);
+  }
+
+  function isSelectedDate(date /* :Date */) {
+    return dateInput.value === toDateString(date);
   }
 })();
